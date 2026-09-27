@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gentle Puzzles | MindEase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/puzzle-game.css?v=5">
+</head>
+<body class="puzzle-page">
+  <div class="puzzle-page__veil"></div>
+  <div class="app-container">
+    <header class="navbar">
+      <a href="index.html" class="brand-logo" aria-label="MindEase Homepage"><div class="brand-icon">M</div><span>MindEase</span></a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a><a href="Feelings.html" class="nav-link">How I Feel</a><a href="Journal.html" class="nav-link">Journal</a><a href="Naturesounds.html" class="nav-link">Nature</a><a href="Calm corner.html" class="nav-link">Calm Corner</a><a href="profile.php" class="nav-link">Profile</a>
+      </nav>
+    </header>
+    <main class="puzzle-game" aria-labelledby="puzzle-title">
+      <section id="puzzle-selection" class="puzzle-selection">
+        <p class="puzzle-kicker">A gentle focus activity</p>
+        <h1 id="puzzle-title">Choose a puzzle</h1>
+        <p class="puzzle-intro">Pick the picture that feels right for this moment. There is no timer and no pressure.</p>
+        <div id="puzzle-list" class="puzzle-list" aria-label="Available puzzles"></div>
+      </section>
+
+      <section id="puzzle-play" class="puzzle-play" hidden aria-labelledby="playing-puzzle-title">
+        <div class="puzzle-play__heading">
+          <div><p class="puzzle-kicker">Take your time</p><h1 id="playing-puzzle-title">Puzzle</h1><p>Tap two pieces to swap them, or drag a piece into place.</p></div>
+          <div class="puzzle-play__actions"><button id="reshuffle-puzzle" class="puzzle-text-button" type="button">Reshuffle puzzle</button><button id="choose-another" class="puzzle-text-button" type="button">Choose another puzzle</button></div>
+        </div>
+        <div class="puzzle-workspace">
+          <div id="puzzle-board" class="puzzle-board" aria-label="Puzzle board. Tap two pieces to swap them."></div>
+          <p id="puzzle-help" class="puzzle-help">Use this completed picture as a gentle guide.</p><figure class="puzzle-reference"><img id="puzzle-reference-image" src="" alt="Completed puzzle reference"><figcaption>Completed picture</figcaption></figure>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="puzzle-complete" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="puzzle-complete-title" hidden>
+    <div class="puzzle-modal__card">
+      <p class="puzzle-kicker">Puzzle complete</p>
+      <h2 id="puzzle-complete-title">Great!. You let away your thoughts</h2>
+      <div class="puzzle-modal__actions">
+        <button id="try-another" class="puzzle-button" type="button">Try another puzzle</button>
+        <a class="puzzle-button puzzle-button--secondary" href="Calm corner.html">Check out another game</a>
+      </div>
+    </div>
+  </div>
+  <script src="js/puzzle-game.js?v=6"></script>
+</body>
+</html>

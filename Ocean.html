@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#127754;Ocean | MindEase Safe Space</title>
+  <meta name="description" content="A calm ocean-inspired space to pause with the rhythm of the waves.">
+  <link rel="stylesheet" href="css/style.css?v=botanical-sitewide-4">
+</head>
+<body class="ocean-page">
+<div class="app-container">
+    <header class="navbar">
+      <a href="index.html" class="brand-logo" aria-label="MindEase Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <span>MindEase</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Feelings.html" class="nav-link">How I Feel</a>
+        <a href="index.html#breathing" class="nav-link">Breathing</a>
+        <a href="Grounding.html" class="nav-link">Grounding</a>
+        <a href="Journal.html" class="nav-link">Journal</a>
+        <a href="Naturesounds.html" class="nav-link active" aria-current="page">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+        <a href="profile.php" class="nav-link">Profile</a>
+        <a href="login.html" class="nav-link">Sign In</a>
+      </nav>
+
+      <button class="btn btn-sos btn-sm" data-open-modal="crisis" aria-label="Suddenly got a weird feeling?">
+        <span>Suddenly got a weird feeling?</span>
+      </button>
+    </header>
+
+    <main class="main-content ocean-content">
+      <section class="ocean-hero animate-fade-in" aria-labelledby="ocean-title">
+        <p class="ocean-kicker">A quiet moment for you</p>
+        <h1 id="ocean-title">&#127754;Ocean</h1>
+        <p>Let the steady rhythm of the waves give your thoughts a little more room. Breathe in slowly, then let the tide carry the tension out.</p>
+        <div class="ocean-pause" aria-label="A gentle ocean grounding prompt">
+          <span>Inhale like a wave</span><span aria-hidden="true">&bull;</span><span>Exhale like the tide</span>
+        </div>
+        <section class="ocean-audio" aria-labelledby="ocean-audio-title">
+          <div>
+            <h2 id="ocean-audio-title">2 minutes of calm ocean waves</h2>
+            <p>Close your eyes and let the waves carry you into a quieter moment.</p>
+          </div>
+          <button id="ocean-audio-toggle" class="btn btn-secondary" type="button" aria-controls="ocean-audio" aria-pressed="false">
+            <span aria-hidden="true">&#9654;</span>
+            <span>Start 2 minutes of calm ocean waves</span>
+          </button>
+          <audio id="ocean-audio" preload="auto">
+            <source src="assets/ocean-sounds.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+          </audio>
+          <p id="ocean-audio-status" class="audio-status" role="status" aria-live="polite"></p>
+        </section>
+        <a href="Naturesounds.html" class="btn btn-secondary">Choose another nature space</a>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const oceanAudio = document.getElementById('ocean-audio');
+    const oceanAudioToggle = document.getElementById('ocean-audio-toggle');
+    const oceanAudioStatus = document.getElementById('ocean-audio-status');
+
+    function updateOceanAudioButton(isPlaying) {
+      oceanAudioToggle.setAttribute('aria-pressed', String(isPlaying));
+      oceanAudioToggle.innerHTML = isPlaying
+        ? '<span aria-hidden="true">&#10074;&#10074;</span><span>Pause ocean waves</span>'
+        : '<span aria-hidden="true">&#9654;</span><span>Start 2 minutes of calm ocean waves</span>';
+    }
+
+    oceanAudioToggle.addEventListener('click', async () => {
+      if (oceanAudio.paused) {
+        try {
+          await oceanAudio.play();
+          updateOceanAudioButton(true);
+          oceanAudioStatus.textContent = '';
+        } catch (error) {
+          console.warn('Ocean audio could not start.', error);
+          oceanAudioStatus.textContent = 'Audio could not start. Please reload the page and try again.';
+        }
+      } else {
+        oceanAudio.pause();
+      }
+    });
+
+    oceanAudio.addEventListener('pause', () => updateOceanAudioButton(false));
+    oceanAudio.addEventListener('play', () => updateOceanAudioButton(true));
+    oceanAudio.addEventListener('ended', () => updateOceanAudioButton(false));
+  </script>
+</body>
+</html>

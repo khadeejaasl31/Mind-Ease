@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#10024;Focus | MindEase Safe Space</title>
+  <meta name="description" content="A focused study and work space with deep-focus audio for quiet concentration.">
+  <link rel="stylesheet" href="css/style.css?v=botanical-sitewide-4">
+</head>
+<body class="focus-page">
+<div class="app-container">
+    <header class="navbar">
+      <a href="index.html" class="brand-logo" aria-label="MindEase Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <span>MindEase</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Feelings.html" class="nav-link">How I Feel</a>
+        <a href="index.html#breathing" class="nav-link">Breathing</a>
+        <a href="index.html#grounding" class="nav-link">Grounding</a>
+        <a href="Journal.html" class="nav-link">Journal</a>
+        <a href="Naturesounds.html" class="nav-link">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+        <a href="profile.php" class="nav-link">Profile</a>
+        <a href="login.html" class="nav-link">Sign In</a>
+      </nav>
+
+      <button class="btn btn-sos btn-sm" data-open-modal="crisis" aria-label="Suddenly got a weird feeling?">
+        <span>Suddenly got a weird feeling?</span>
+      </button>
+    </header>
+
+    <main class="main-content focus-content">
+      <section class="focus-hero animate-fade-in" aria-labelledby="focus-title">
+        <p class="focus-kicker">Your study and work space</p>
+        <h1 id="focus-title">&#10024;Focus</h1>
+        <p>Settle into one task and give your mind a quiet place to work. Let the music hold the background while you read, write, study, or create.</p>
+        <div class="focus-prompt" aria-label="A focusing prompt">
+          <span>Choose one goal</span><span aria-hidden="true">&bull;</span><span>Silence distractions</span><span aria-hidden="true">&bull;</span><span>Begin</span>
+        </div>
+        <section class="focus-audio" aria-labelledby="focus-audio-title">
+          <div>
+            <h2 id="focus-audio-title">Deep focus for work or studying</h2>
+            <p>Start an hour of focus, then let your thoughts settle into the background.</p>
+          </div>
+          <button id="focus-audio-toggle" class="btn btn-secondary" type="button" aria-controls="focus-audio" aria-pressed="false">
+            <span aria-hidden="true">&#9654;</span>
+            <span>Start 1 hour of focusing for work/studying</span>
+          </button>
+          <audio id="focus-audio" preload="auto">
+            <source src="assets/focus-sounds.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+          </audio>
+                    <p id="focus-audio-status" class="audio-status" role="status" aria-live="polite"></p>
+        </section>
+        <a href="index.html" class="btn btn-secondary">Return to your safe space</a>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const focusAudio = document.getElementById('focus-audio');
+    const focusAudioToggle = document.getElementById('focus-audio-toggle');
+
+    function updateFocusAudioButton(isPlaying) {
+      focusAudioToggle.setAttribute('aria-pressed', String(isPlaying));
+      focusAudioToggle.innerHTML = isPlaying
+        ? '<span aria-hidden="true">&#10074;&#10074;</span><span>Pause focus music</span>'
+        : '<span aria-hidden="true">&#9654;</span><span>Start 1 hour of focusing for work/studying</span>';
+    }
+
+    focusAudioToggle.addEventListener('click', async () => {
+      if (focusAudio.paused) {
+        try {
+          await focusAudio.play();
+          updateFocusAudioButton(true);
+        } catch (error) {
+          console.warn('Focus audio could not start.', error);
+          document.getElementById('focus-audio-status').textContent = 'Audio could not start. Please reload the page and try again.';
+        }
+      } else {
+        focusAudio.pause();
+      }
+    });
+
+    focusAudio.addEventListener('pause', () => updateFocusAudioButton(false));
+    focusAudio.addEventListener('play', () => updateFocusAudioButton(true));
+    focusAudio.addEventListener('ended', () => updateFocusAudioButton(false));
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#127783;&#65039;Rain | MindEase Safe Space</title>
+  <meta name="description" content="A quiet, rain-inspired space to pause and reset.">
+  <link rel="stylesheet" href="css/style.css?v=botanical-sitewide-4">
+</head>
+
+<body class="rain-page">
+<div class="app-container">
+    <header class="navbar">
+      <a href="index.html" class="brand-logo" aria-label="MindEase Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <span>MindEase</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Feelings.html" class="nav-link">How I Feel</a>
+        <a href="index.html#breathing" class="nav-link">Breathing</a>
+        <a href="index.html#grounding" class="nav-link">Grounding</a>
+        <a href="Journal.html" class="nav-link">Journal</a>
+        <a href="Naturesounds.html" class="nav-link">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+        <a href="profile.php" class="nav-link">Profile</a>
+        <a href="login.html" class="nav-link">Sign In</a>
+      </nav>
+
+      <button class="btn btn-sos btn-sm" data-open-modal="crisis" aria-label="Suddenly got a weird feeling?">
+        <span>Suddenly got a weird feeling?</span>
+      </button>
+    </header>
+
+    <main class="main-content rain-content">
+      <section class="rain-hero animate-fade-in" aria-labelledby="rain-title">
+        <p class="rain-kicker">A quiet moment for you</p>
+        <h1 id="rain-title">&#127783;&#65039;Rain</h1>
+        <p>Let the rain soften the noise around you. Take a slow breath, settle into this moment, and allow yourself to
+          rest.</p>
+        <div class="rain-pause" aria-label="A gentle grounding prompt">
+          <span>Listen</span><span aria-hidden="true">&bull;</span><span>Breathe</span><span
+            aria-hidden="true">&bull;</span><span>Release</span>
+        </div>
+        <section class="rain-audio" aria-labelledby="rain-audio-title">
+          <div>
+            <h2 id="rain-audio-title">2 minutes of calm rain sounds</h2>
+            <p>Close your eyes and feel the sound.</p>
+          </div>
+          <button id="rain-audio-toggle" class="btn btn-secondary" type="button" aria-controls="rain-audio"
+            aria-pressed="false">
+            <span aria-hidden="true">&#9654;</span>
+            <span>Start 2 minutes of calm rain sounds</span>
+          </button>
+          <audio id="rain-audio" preload="auto">
+            <source src="assets/rain-sounds.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+          </audio>
+          <p id="rain-audio-status" class="audio-status" role="status" aria-live="polite"></p>
+        </section>
+        <a href="index.html" class="btn btn-secondary">Return to your safe space</a>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const rainAudio = document.getElementById('rain-audio');
+    const rainAudioToggle = document.getElementById('rain-audio-toggle');
+
+    function updateRainAudioButton(isPlaying) {
+      rainAudioToggle.setAttribute('aria-pressed', String(isPlaying));
+      rainAudioToggle.innerHTML = isPlaying
+        ? '<span aria-hidden="true">&#10074;&#10074;</span><span>Pause rain sounds</span>'
+        : '<span aria-hidden="true">&#9654;</span><span>Start 2 minutes of calm rain sounds</span>';
+    }
+
+    rainAudioToggle.addEventListener('click', async () => {
+      if (rainAudio.paused) {
+        try {
+          await rainAudio.play();
+          updateRainAudioButton(true);
+        } catch (error) {
+          console.warn('Rain audio could not start.', error);
+          document.getElementById('rain-audio-status').textContent = 'Audio could not start. Please reload the page and try again.';
+        }
+      } else {
+        rainAudio.pause();
+      }
+    });
+
+    rainAudio.addEventListener('pause', () => updateRainAudioButton(false));
+    rainAudio.addEventListener('play', () => updateRainAudioButton(true));
+    rainAudio.addEventListener('ended', () => updateRainAudioButton(false));
+  </script>
+</body>
+
+</html>

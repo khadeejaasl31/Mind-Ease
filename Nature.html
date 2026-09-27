@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍃Forest| MindEase Safe Space</title>
+    <meta name="description" content="A quiet, nature-inspired space to pause, breathe, and reset.">
+    <link rel="stylesheet" href="css/style.css?v=botanical-sitewide-4">
+</head>
+
+<body class="nature-page">
+<div class="leaf-scene" aria-hidden="true">
+  <div class="leaf-sprig sprig-top-left"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-top-right"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-mid"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-mid"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-low"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-low"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-upper"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-upper"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-center"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-center"><i></i><b></b><em></em></div>
+</div>
+    <div class="app-container">
+        <header class="navbar">
+            <a href="index.html" class="brand-logo" aria-label="MindEase Homepage">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                </div>
+                <span>MindEase</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="Feelings.html" class="nav-link">How I Feel</a>
+                <a href="index.html#breathing" class="nav-link">Breathing</a>
+                <a href="index.html#grounding" class="nav-link">Grounding</a>
+                <a href="Journal.html" class="nav-link">Journal</a>
+                <a href="Naturesounds.html" class="nav-link">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+                <a href="profile.php" class="nav-link">Profile</a>
+                <a href="login.html" class="nav-link">Sign In</a>
+            </nav>
+
+            <button class="btn btn-sos btn-sm" data-open-modal="crisis" aria-label="Suddenly got a weird feeling?">
+                <span>Suddenly got a weird feeling?</span>
+            </button>
+        </header>
+
+        <main class="main-content nature-content">
+            <section class="nature-hero animate-fade-in" aria-labelledby="nature-title">
+                <p class="nature-kicker">A quiet moment for you</p>
+                <h1 id="nature-title">🍃Forest</h1>
+                <p>Let the forest be a gentle reminder to slow down. Take one unhurried breath, notice what is around
+                    you, and give yourself permission to simply be here.</p>
+                <div class="nature-breath" aria-label="A gentle breathing prompt">
+                    <span>Inhale calm</span>
+                    <span aria-hidden="true">•</span>
+                    <span>Exhale slowly</span>
+                </div>
+                <section class="nature-audio" aria-labelledby="nature-audio-title">
+                    <div>
+                        <h2 id="nature-audio-title">2 minutes of calm nature</h2>
+                        <p>Close your eyes and feel the sound.</p>
+                    </div>
+                    <button id="nature-audio-toggle" class="btn btn-secondary" type="button"
+                        aria-controls="nature-audio" aria-pressed="false">
+                        <span aria-hidden="true">▶</span>
+                        <span>Start 2 minutes of calm nature</span>
+                    </button>
+                    <audio id="nature-audio" preload="auto">
+                        <source src="assets/nature-sounds.mp3" type="audio/mpeg">
+                        Your browser does not support audio playback.
+                    </audio>
+                    <p id="nature-audio-status" class="audio-status" role="status" aria-live="polite"></p>
+                </section>
+                <a href="index.html" class="btn btn-secondary">Return to your safe space</a>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        const natureAudio = document.getElementById('nature-audio');
+        const natureAudioToggle = document.getElementById('nature-audio-toggle');
+
+        function updateNatureAudioButton(isPlaying) {
+            natureAudioToggle.setAttribute('aria-pressed', String(isPlaying));
+            natureAudioToggle.innerHTML = isPlaying
+                ? '<span aria-hidden="true">❚❚</span><span>Pause nature sounds</span>'
+                : '<span aria-hidden="true">▶</span><span>Start 2 minutes of calm nature</span>';
+        }
+
+        natureAudioToggle.addEventListener('click', async () => {
+            if (natureAudio.paused) {
+                try {
+                    await natureAudio.play();
+                    updateNatureAudioButton(true);
+                } catch (error) {
+                    console.warn('Nature audio could not start.', error);
+          document.getElementById('nature-audio-status').textContent = 'Audio could not start. Please reload the page and try again.';
+                }
+            } else {
+                natureAudio.pause();
+            }
+        });
+
+        natureAudio.addEventListener('pause', () => updateNatureAudioButton(false));
+        natureAudio.addEventListener('play', () => updateNatureAudioButton(true));
+        natureAudio.addEventListener('ended', () => updateNatureAudioButton(false));
+    </script>
+</body>
+
+</html>
+
+

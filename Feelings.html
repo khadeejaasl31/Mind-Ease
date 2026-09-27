@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Are You Feeling? | MindEase Emotional First Aid</title>
+    <meta name="description"
+        content="Select how you are feeling to receive tailored emotional first-aid guidance, grounding techniques, and gentle supportive tools in a dark, peaceful safe space.">
+
+    <!-- MindEase Design System -->
+    <link rel="stylesheet" href="css/style.css?v=checkin-flow-1">
+</head>
+<body>
+
+    <!-- Ambient Glowing Backdrop -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+<div class="app-container">
+
+        <!-- Top Navigation Bar -->
+        <header class="navbar">
+            <a href="index.html" class="brand-logo" aria-label="MindEase Homepage">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                </div>
+                <span>MindEase</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="Feelings.html" class="nav-link active">How I Feel</a>
+                <a href="index.html#breathing" class="nav-link">Breathing</a>
+                <a href="index.html#grounding" class="nav-link">Grounding</a>
+                <a href="Journal.html" class="nav-link">Journal</a>
+                <a href="Naturesounds.html" class="nav-link">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+                <a href="profile.php" class="nav-link">Profile</a>
+                <a href="login.html" class="nav-link">Sign In</a>
+            </nav>
+
+            <!-- Exclusive Sudden Unexplained Feeling Button -->
+            <button class="btn btn-sos btn-sm" data-open-modal="crisis" aria-label="Suddenly got a weird feeling?">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Suddenly got a weird feeling?</span>
+            </button>
+        </header>
+
+        <!-- Main Content Body -->
+        <main class="main-content">
+
+            <!-- Non-Medical Disclaimer Banner -->
+            <div class="disclaimer-banner animate-fade-in" role="region" aria-label="Support Disclaimer">
+                <div class="disclaimer-content">
+                    <svg class="disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="16" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                    <span><strong>Non-Judgmental Safe Space:</strong> Select whatever emotion best describes your
+                        current state. MindEase will offer gentle, non-medical first-aid steps.</span>
+                </div>
+                <span class="badge badge-purple">Safe Space</span>
+            </div>
+
+            <!-- Section Title & Header -->
+            <section class="text-center mt-2 mb-4 animate-fade-in">
+                <span class="badge badge-pink mb-2">Emotional Check-In</span>
+                <h1 class="text-gradient mb-2" style="font-size: clamp(2rem, 4.5vw, 3.2rem);">How are you feeling right
+                    now?</h1>
+                <p class="text-muted" style="max-width: 640px; margin: 0 auto; font-size: 1.1rem;">
+                    Click on any card below that resonates with your current emotion. There are no right or wrong
+                    answers - just an invitation to pause and reset.
+                </p>
+            </section>
+
+            <!-- Emotion Cards Grid -->
+            <section class="animate-fade-in" aria-label="Emotion Options Grid">
+                <div class="emotion-grid" role="region" aria-label="Select your current emotion">
+
+                    <!-- Card 1: Anxious -->
+                    <a href="feelings-guide.html?emotion=anxious" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="anxious" aria-label="Feelings selection: Anxious">
+                        <span class="emotion-emoji" aria-hidden="true">😰</span>
+                        <h2 class="emotion-title">Anxious</h2>
+                        <p class="emotion-subtext">Racing thoughts, tightness, or tension</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>
+
+                    <!-- Card 2: Sad -->
+                    <a href="feelings-guide.html?emotion=sad" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="sad" aria-label="Feelings selection: Sad">
+                        <span class="emotion-emoji" aria-hidden="true">😔</span>
+                        <h2 class="emotion-title">Sad</h2>
+                        <p class="emotion-subtext">Heavy heart, low energy, or tears</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>
+
+                    <!-- Card 3: Angry -->
+                    <a href="feelings-guide.html?emotion=angry" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="angry" aria-label="Feelings selection: Angry">
+                        <span class="emotion-emoji" aria-hidden="true">😡</span>
+                        <h2 class="emotion-title">Angry</h2>
+                        <p class="emotion-subtext">Frustration, heat, or boundary pressure</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>
+
+                    <!-- Card 4: Exhausted -->
+                    <a href="feelings-guide.html?emotion=exhausted" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="exhausted" aria-label="Feelings selection: Exhausted">
+                        <span class="emotion-emoji" aria-hidden="true">😴</span>
+                        <h2 class="emotion-title">Exhausted</h2>
+                        <p class="emotion-subtext">Burnout, heavy eyes, zero battery left</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>
+
+                    <!-- Card 5: Lonely -->
+                    <a href="feelings-guide.html?emotion=lonely" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="lonely" aria-label="Feelings selection: Lonely">
+                        <span class="emotion-emoji" aria-hidden="true">😞</span>
+                        <h2 class="emotion-title">Lonely</h2>
+                        <p class="emotion-subtext">Disconnected, isolated, or longing for care</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>
+
+                    <!-- Card 6: Overwhelmed -->
+                    <a href="feelings-guide.html?emotion=overwhelmed" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="overwhelmed" aria-label="Feelings selection: Overwhelmed">
+                        <span class="emotion-emoji" aria-hidden="true">😵</span>
+                        <h2 class="emotion-title">Overwhelmed</h2>
+                        <p class="emotion-subtext">Too many demands, sensory overload</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>
+
+                    <!-- Card 7: Okay -->
+                    <a href="feelings-guide.html?emotion=okay" class="emotion-card" role="button" tabindex="0"
+                        data-emotion="okay" aria-label="Feelings selection: Okay">
+                        <span class="emotion-emoji" aria-hidden="true">🙂</span>
+                        <h2 class="emotion-title">Okay</h2>
+                        <p class="emotion-subtext">Balanced, peaceful, or steady baseline</p>
+                        <span class="emotion-action-badge">Receive First Aid &rarr;</span>
+                    </a>                    <a href="feelings-guide.html?emotion=worried" class="emotion-card"><span class="emotion-emoji">&#128543;</span><h2 class="emotion-title">Worried</h2><p class="emotion-subtext">Persistent concerns or uncertainty</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=numb" class="emotion-card"><span class="emotion-emoji">&#128566;</span><h2 class="emotion-title">Numb</h2><p class="emotion-subtext">Emotionally blank or disconnected</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=hurt" class="emotion-card"><span class="emotion-emoji">&#128148;</span><h2 class="emotion-title">Hurt</h2><p class="emotion-subtext">Emotional pain after something happened</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=confused" class="emotion-card"><span class="emotion-emoji">&#128533;</span><h2 class="emotion-title">Confused</h2><p class="emotion-subtext">Not sure what you feel or what to do</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=need-comfort" class="emotion-card"><span class="emotion-emoji">&#129402;</span><h2 class="emotion-title">Need Comfort</h2><p class="emotion-subtext">Wanting reassurance and gentleness</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=low" class="emotion-card"><span class="emotion-emoji">&#127783;&#65039;</span><h2 class="emotion-title">Low</h2><p class="emotion-subtext">Not feeling good, without a clear reason</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=frustrated" class="emotion-card"><span class="emotion-emoji">&#128548;</span><h2 class="emotion-title">Frustrated</h2><p class="emotion-subtext">Blocked, irritated, or fed up</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=stressed" class="emotion-card"><span class="emotion-emoji">&#129760;</span><h2 class="emotion-title">Stressed</h2><p class="emotion-subtext">Pressure from school, work, or responsibilities</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+                    <a href="feelings-guide.html?emotion=need-calm" class="emotion-card"><span class="emotion-emoji">&#129496;</span><h2 class="emotion-title">Need Calm</h2><p class="emotion-subtext">Ready to relax, reset, and slow down</p><span class="emotion-action-badge">Receive First Aid &rarr;</span></a>
+
+                </div>
+            </section>
+
+            <section id="gentle-checkin" class="card card-glass mt-4 animate-fade-in gentle-checkin" aria-labelledby="checkin-title">
+                <div class="text-center">
+                    <span class="badge badge-purple mb-1">Not Sure Yet?</span>
+                    <h2 id="checkin-title" class="text-gradient" style="font-size: 1.6rem;">I don't know what I'm feeling</h2>
+                    <p class="text-muted" style="max-width: 620px; margin: 0 auto 1.25rem;">You do not need to name it perfectly. Take a gentle check-in and we will help you find a useful place to start.</p>
+                    <button id="open-gentle-checkin" type="button" class="btn btn-primary">Begin a Gentle Check-In</button>
+                </div>
+                <div id="checkin-workflow" hidden>
+                    <div class="checkin-divider"></div>
+                    <p class="text-muted text-center mb-3">Answer only what feels helpful. There are no wrong answers.</p>
+                    <form id="gentle-checkin-form" novalidate><div id="checkin-questions" class="checkin-questions"></div></form>
+                    <div id="checkin-suggestions" class="checkin-suggestions" aria-live="polite"></div>
+                </div>
+            </section>
+            <!-- Reassuring Bottom Callout -->
+            <div class="card card-glass text-center mt-4 p-4 animate-fade-in">
+                <h3 class="text-gradient" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Not sure where to start?
+                </h3>
+                <p class="text-muted" style="font-size: 0.95rem; max-width: 540px; margin: 0 auto 1.25rem;">
+                    You can take a gentle breathing pause, or read quick steps if you suddenly got an unexplainable feeling.
+                </p>
+                <div class="flex justify-center gap-2 flex-wrap">
+                    <a href="index.html#breathing" class="btn btn-secondary btn-sm">Try Guided Breathing</a>
+                    <button class="btn btn-sos btn-sm" data-open-modal="crisis">Suddenly got a weird feeling?</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer Component -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="brand-logo">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <span>MindEase</span>
+                </div>
+
+                <p class="footer-disclaimer">
+                    <strong>Important Safety Notice:</strong> MindEase is an emotional first-aid digital tool created
+                    for self-calming and emotional grounding. It does not provide medical diagnoses, treatment, or
+                    clinical mental health therapy.
+                </p>
+
+                <p class="text-subtle" style="font-size: 0.8rem;">
+                    &copy; 2026 MindEase. Designed for student & young adult well-being.
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Unexpected Feeling & Immediate Guidance Modal -->
+    <div id="crisis-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="crisis-title">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="flex items-center gap-2">
+                    <span class="badge badge-sos">Gentle First-Aid</span>
+                    <h3 id="crisis-title" style="font-size: 1.25rem;">Suddenly got a weird feeling?</h3>
+                </div>
+                <button class="modal-close" data-close-modal="crisis" aria-label="Close modal">&times;</button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 1.5rem;">
+                
+                <!-- Section 1: Physical Environment -->
+                <div class="p-3" style="background: rgba(18, 16, 32, 0.6); border-radius: var(--radius-md); border: 1px solid var(--bg-glass-border);">
+                    <h4 class="text-pink mb-2" style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🌿</span> Change your physical environment
+                    </h4>
+                    <p class="text-muted mb-2" style="font-size: 0.875rem;">If possible:</p>
+                    <ul style="display: flex; flex-direction: column; gap: 0.4rem; padding-left: 1.25rem; font-size: 0.9rem;" class="text-muted">
+                        <li>Sit somewhere comfortable.</li>
+                        <li>Loosen your shoulders and jaw.</li>
+                        <li>Get some fresh air.</li>
+                        <li>Sip some water.</li>
+                        <li>Wash your face with cool water.</li>
+                        <li>Put your phone down for a few minutes.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: Don't fight the feeling -->
+                <div class="p-3" style="background: rgba(18, 16, 32, 0.6); border-radius: var(--radius-md); border: 1px solid var(--bg-glass-border);">
+                    <h4 class="text-purple mb-2" style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🧠</span> Don't fight the feeling
+                    </h4>
+                    <p class="text-muted mb-2" style="font-size: 0.9rem;">
+                        Instead of <em>â€œWhy am I feeling this?! Something must be wrong!â€</em>, try:
+                    </p>
+                    <div class="p-2 mb-2" style="background: rgba(185, 161, 232, 0.1); border-left: 3px solid var(--purple-soft); border-radius: 4px;">
+                        <p class="text-main" style="font-size: 0.9rem; font-style: italic;">
+                            â€œI'm experiencing a strong uncomfortable feeling. I don't have to solve it this second. I'll give myself a few minutes to settle.â€
+                        </p>
+                    </div>
+                    <p class="text-subtle" style="font-size: 0.85rem;">
+                        You don't have to identify the emotion immediately.
+                    </p>
+                </div>
+
+                <!-- Section 3: 30-second check-in -->
+                <div class="p-3" style="background: rgba(18, 16, 32, 0.6); border-radius: var(--radius-md); border: 1px solid var(--bg-glass-border);">
+                    <h4 class="text-blue mb-2" style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>âœï¸</span> Do a 30-second check-in
+                    </h4>
+                    <p class="text-muted mb-2" style="font-size: 0.875rem;">Ask yourself:</p>
+                    <ul style="display: flex; flex-direction: column; gap: 0.4rem; padding-left: 1.25rem; font-size: 0.9rem; margin-bottom: 0.75rem;" class="text-muted">
+                        <li>What am I feeling?</li>
+                        <li>What was happening just before it started?</li>
+                        <li>What does my body need right now?</li>
+                        <li>What's one small thing I can do in the next 5 minutes?</li>
+                    </ul>
+                    <p class="text-subtle" style="font-size: 0.85rem;">
+                        Sometimes the answer is simply water, food, rest, fresh air, a quiet place, or talking to someone.
+                    </p>
+                </div>
+
+                <!-- Section 4: Give your brain something gentle to focus on -->
+                <div class="p-3" style="background: rgba(18, 16, 32, 0.6); border-radius: var(--radius-md); border: 1px solid var(--bg-glass-border);">
+                    <h4 class="text-pink mb-2" style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🎧</span> Give your brain something gentle to focus on
+                    </h4>
+                    <p class="text-muted mb-2" style="font-size: 0.875rem;">Try:</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="pill">Calm music</span>
+                        <span class="pill">Rain/ocean sounds</span>
+                        <span class="pill">Coloring</span>
+                        <span class="pill">A simple puzzle</span>
+                        <span class="pill">Organizing something</span>
+                        <span class="pill">Taking a short walk</span>
+                        <span class="pill">Talking to someone you trust</span>
+                    </div>
+                </div>
+
+                <!-- Section 5: Tell someone -->
+                <div class="p-3" style="background: rgba(18, 16, 32, 0.6); border-radius: var(--radius-md); border: 1px solid var(--bg-glass-border);">
+                    <h4 class="text-purple mb-2" style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🤝</span> Tell someone
+                    </h4>
+                    <p class="text-muted mb-2" style="font-size: 0.9rem;">
+                        If the feeling is strong or keeps returning, you don't have to handle it by yourself. You could simply say:
+                    </p>
+                    <div class="p-2 mb-2" style="background: rgba(243, 166, 200, 0.1); border-left: 3px solid var(--pink-soft); border-radius: 4px;">
+                        <p class="text-main" style="font-size: 0.9rem; font-style: italic;">
+                            â€œI'm feeling really weird and anxious right now. I don't know why. Can you stay with me for a bit?â€
+                        </p>
+                    </div>
+                    <p class="text-subtle" style="font-size: 0.85rem; line-height: 1.4;">
+                        And if you have severe or unusual physical symptoms, feel physically unsafe, or the feeling isn't settling, tell a trusted adult and seek appropriate medical help.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-secondary btn-sm" data-close-modal="crisis">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/app.js?v=checkin-flow-2"></script>
+</body>
+
+</html>
+
+
+
+

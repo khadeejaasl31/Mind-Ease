@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guided Grounding | MindEase</title>
+  <meta name="description" content="A guided 5-4-3-2-1 grounding exercise with space for your own answers.">
+  <link rel="stylesheet" href="css/style.css?v=botanical-sitewide-4">
+</head>
+<body>
+<div class="leaf-scene" aria-hidden="true">
+  <div class="leaf-sprig sprig-top-left"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-top-right"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-mid"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-mid"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-low"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-low"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-upper"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-upper"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-left-center"><i></i><b></b><em></em></div>
+  <div class="leaf-sprig sprig-right-center"><i></i><b></b><em></em></div>
+</div>
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="navbar">
+      <a href="index.html" class="brand-logo" aria-label="MindEase Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <span>MindEase</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Feelings.html" class="nav-link">How I Feel</a>
+        <a href="index.html#breathing" class="nav-link">Breathing</a>
+        <a href="Grounding.html" class="nav-link active" aria-current="page">Grounding</a>
+        <a href="Journal.html" class="nav-link">Journal</a>
+        <a href="Naturesounds.html" class="nav-link">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+        <a href="profile.php" class="nav-link">Profile</a>
+        <a href="login.html" class="nav-link">Sign In</a>
+      </nav>
+
+      <button class="btn btn-sos btn-sm" data-open-modal="crisis" aria-label="Suddenly got a weird feeling?">
+        <span>Suddenly got a weird feeling?</span>
+      </button>
+    </header>
+
+    <main class="main-content grounding-content">
+      <section class="card card-glass grounding-card animate-fade-in" aria-labelledby="grounding-title">
+        <div class="text-center mb-4">
+          <span class="badge badge-pink mb-1">5-4-3-2-1 Sensory Grounding</span>
+          <h1 id="grounding-title" class="text-gradient">Anchor to the present</h1>
+          <p class="text-muted">Slow down and write what you notice. There are no wrong answers—short words are enough.</p>
+        </div>
+
+        <form id="grounding-form">
+          <div class="form-group">
+            <label class="form-label" for="grounding-see"><strong>5 things</strong> you can see around you</label>
+            <textarea id="grounding-see" class="form-textarea" rows="3" placeholder="For example: a window, a cup, a book..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="grounding-feel"><strong>4 things</strong> you can physically feel</label>
+            <textarea id="grounding-feel" class="form-textarea" rows="3" placeholder="For example: your feet on the floor, fabric on your hands..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="grounding-hear"><strong>3 things</strong> you can hear right now</label>
+            <textarea id="grounding-hear" class="form-textarea" rows="3" placeholder="For example: a fan, distant voices, your breath..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="grounding-smell"><strong>2 things</strong> you can smell</label>
+            <textarea id="grounding-smell" class="form-textarea" rows="2" placeholder="For example: fresh air, tea, soap..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="grounding-taste"><strong>1 thing</strong> you can taste</label>
+            <textarea id="grounding-taste" class="form-textarea" rows="2" placeholder="For example: water, gum, a lingering flavour..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Complete my grounding check-in</button>
+          <p id="grounding-response" class="grounding-response" role="status" hidden></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const groundingForm = document.getElementById('grounding-form');
+    const groundingResponse = document.getElementById('grounding-response');
+
+    groundingForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      groundingResponse.hidden = false;
+      groundingResponse.textContent = 'You did it. Notice whether your body feels even a little more settled now.';
+    });
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calm Corner | MindEase</title>
+    <link rel="stylesheet" href="css/style.css?v=calm-corner-1">
+    <style>
+        .calm-corner-page { min-height: 100vh; background: #08111d url('assets/calm-corner-board-games.jpg') center / cover fixed no-repeat; }
+        .calm-corner-page .app-container { min-height: 100vh; background: linear-gradient(90deg, rgba(4, 12, 22, .84) 0%, rgba(4, 12, 22, .57) 56%, rgba(4, 12, 22, .22) 100%); }
+        .calm-corner-content { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: clamp(44px, 7vw, 88px) 0; }
+        .calm-corner-hero { max-width: 650px; }.calm-corner-hero h1 { margin: 8px 0 12px; color: #f6fbff; font-size: clamp(2.5rem, 6vw, 4.8rem); }.calm-corner-hero p { margin: 0; color: #d8e8f5; font-size: 1.08rem; }
+        .calm-kicker { margin: 0; color: #8ecdf4 !important; font-size: .82rem !important; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }.calm-games { margin-top: 44px; max-width: 510px; }.calm-games h2 { color: #f6fbff; font-size: 1.35rem; }
+        .calm-game-card { display: block; margin-top: 14px; padding: 22px; border: 1px solid rgba(46, 100, 104, .2); border-radius: 18px; background: rgba(7, 20, 35, .73); box-shadow: 0 12px 28px rgba(0, 0, 0, .25); color: #f6fbff; transition: transform .2s ease, background .2s ease; }.calm-game-card:hover { background: rgba(7, 20, 35, .9); transform: translateY(-4px); }.calm-game-card strong,.calm-game-card span { display: block; }.calm-game-card strong { font-size: 1.2rem; }.calm-game-card span { margin-top: 5px; color: #d8e8f5; }
+        @media (max-width: 700px) { .calm-corner-page .app-container { background: linear-gradient(rgba(4, 12, 22, .78), rgba(4, 12, 22, .62)); } }
+    </style>
+</head>
+<body class="calm-corner-page">
+    <div class="app-container">
+        <header class="navbar">
+            <a href="index.html" class="brand-logo" aria-label="MindEase Homepage"><div class="brand-icon">M</div><span>MindEase</span></a>
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="index.html" class="nav-link">Home</a><a href="Feelings.html" class="nav-link">How I Feel</a><a href="Journal.html" class="nav-link">Journal</a><a href="Naturesounds.html" class="nav-link">Nature</a><a href="Calm corner.html" class="nav-link active" aria-current="page">Calm Corner</a><a href="profile.php" class="nav-link">Profile</a>
+            </nav>
+        </header>
+        <main class="calm-corner-content">
+            <section class="calm-corner-hero" aria-labelledby="calm-corner-title"><p class="calm-kicker">A little space for you</p><h1 id="calm-corner-title">Welcome to your calm corner</h1><p>Take a quiet pause with small activities designed to help your mind reset.</p></section>
+            <section class="calm-games" aria-labelledby="games-title"><h2 id="games-title">Games and activities</h2><a class="calm-game-card" href="memory-game.html"><strong>Memory Matching Game</strong><span>Find every pair and give your mind some gentle focus time.</span></a><a class="calm-game-card" href="puzzle-game.html"><strong>Gentle Picture Puzzles</strong><span>Choose a picture and slowly piece it back together.</span></a><p style="margin-top: 18px; color: rgba(216,232,245,0.8); font-size: 0.9rem; letter-spacing: 0.02em;">More games will be added further</p></section>
+        </main>
+    </div>
+</body>
+</html>

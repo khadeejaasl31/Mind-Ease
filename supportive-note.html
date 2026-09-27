@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supportive Note | MindEase</title>
+  <meta name="description" content="A gentle supportive quote for the moment you are in.">
+  <link rel="stylesheet" href="css/style.css?v=botanical-sitewide-4">
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="leaf-scene" aria-hidden="true">
+    <div class="leaf-sprig sprig-top-left"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-top-right"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-left-mid"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-right-mid"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-left-low"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-right-low"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-left-upper"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-right-upper"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-left-center"><i></i><b></b><em></em></div>
+    <div class="leaf-sprig sprig-right-center"><i></i><b></b><em></em></div>
+  </div>
+  <div class="app-container">
+    <header class="navbar">
+      <a href="index.html" class="brand-logo" aria-label="MindEase Homepage"><div class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span>MindEase</span></a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Feelings.html" class="nav-link">How I Feel</a>
+        <a href="index.html#breathing" class="nav-link">Breathing</a>
+        <a href="Grounding.html" class="nav-link">Grounding</a>
+        <a href="Journal.html" class="nav-link">Journal</a>
+        <a href="Naturesounds.html" class="nav-link">Nature</a>
+                <a href="Calm corner.html" class="nav-link">Calm Corner</a>
+        <a href="profile.php" class="nav-link">Profile</a>
+        <a href="login.html" class="nav-link">Sign In</a>
+      </nav>
+    </header>
+    <main class="main-content">
+      <div class="mb-3"><a href="supportive-notes.html" class="btn btn-ghost btn-sm">&larr; Choose another note</a></div>
+
+      <section id="general-support" class="general-quote-section card card-glass text-center p-4" aria-labelledby="general-support-title" hidden>
+        <span id="quote-category" class="badge badge-blue">General Support</span>
+        <h1 id="general-support-title" class="text-gradient" style="font-size: 2rem; margin-top: .75rem;">A gentle quote for today</h1>
+        <p class="text-muted general-quote-intro">Take a small pause, then tap the card when you are ready.</p>
+
+        <div class="quote-card-wrap">
+          <button id="quote-card" class="quote-card" type="button" aria-controls="quote-text" aria-expanded="false">
+            <span class="quote-card-inner">
+              <span class="quote-card-face quote-card-front"><span class="quote-card-sparkle" aria-hidden="true">✦</span><span>Tap to see<br>quote of the day</span><span class="quote-card-hint">A small reminder is waiting</span></span>
+              <span class="quote-card-face quote-card-back"><span id="quote-text" class="quote-card-text" aria-live="polite"></span></span>
+            </span>
+          </button>
+        </div>
+
+        <div id="quote-actions" class="quote-actions" hidden>
+          <button id="another-quote" class="btn btn-secondary" type="button">See another quote</button>
+          <a href="index.html" class="btn btn-primary">Got it, browse home</a>
+        </div>
+      </section>
+
+      <section id="coming-soon" class="card card-glass text-center p-4" aria-labelledby="coming-soon-title" hidden>
+        <span class="badge badge-blue">Supportive Notes</span>
+        <h1 id="coming-soon-title" class="text-gradient" style="font-size: 2rem; margin-top: .75rem;">A note is coming soon</h1>
+        <p class="text-muted" style="max-width: 580px; margin: 0 auto 1.5rem;">This category page is ready. Its supportive-note content can be added next.</p>
+        <a href="supportive-notes.html" class="btn btn-primary">Browse categories</a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const category = new URLSearchParams(window.location.search).get('category');
+    const generalSupport = document.getElementById('general-support');
+    const comingSoon = document.getElementById('coming-soon');
+    const quoteCategory = document.getElementById('quote-category');
+    const quoteTitle = document.getElementById('general-support-title');
+
+    const quoteCollections = {
+      general: {
+        label: 'General Support',
+        title: 'A gentle quote for today',
+        quotes: [
+          "You don't have to have everything figured out today.",
+          "Take things one moment at a time. That's enough for now.",
+          "You are allowed to slow down when everything feels like too much.",
+          "A difficult moment does not define your entire day.",
+          "You can take a break without feeling guilty about it.",
+          "You don't need to be okay every second.",
+          "Small steps still move you forward.",
+          "You are doing what you can with what you have right now.",
+          "It's okay if today isn't your best day.",
+          "You can start again, even if today didn't go as planned.",
+          "You don't have to solve everything at once.",
+          "Give yourself the same patience you would give someone you care about.",
+          "You are more than what you accomplish today.",
+          "It's okay to take things slowly.",
+          "You don't have to earn rest.",
+          "One difficult moment is only one moment."
+        ]
+      },
+      anxiety: {
+        label: 'For Anxiety & Overthinking',
+        title: 'A grounding quote for this moment',
+        quotes: [
+          "You don't have to figure out the future right now. Come back to this moment.",
+          "Not every thought needs an answer.",
+          "Take a breath. You can deal with one thing at a time.",
+          "A worried thought is not automatically a fact.",
+          "You don't need to solve tomorrow tonight.",
+          "Let the thought be there without letting it control what you do next.",
+          "Right now, focus on what you can see, hear, and feel around you.",
+          "You are allowed to pause before reacting.",
+          "You don't have to understand exactly what you're feeling to take care of yourself.",
+          "Give yourself a moment before you decide what comes next.",
+          "You can feel uncertain and still take the next small step.",
+          "Your mind can be loud without you having to follow every thought.",
+          "You don't have to believe every thought that crosses your mind.",
+          "Come back to what is happening right now, instead of everything that might happen later.",
+          "You can let uncertainty exist without needing to figure it all out immediately.",
+          "Take a slow breath and remind yourself: this moment is all you need to handle right now."
+        ]
+      },
+      sadness: {
+        label: 'For Sadness',
+        title: 'A gentle light for today',
+        quotes: [
+          "It's okay to have a day when you're not okay.",
+          "You don't have to force yourself to feel happy right now.",
+          "Be gentle with yourself while you're going through this.",
+          "You can take today slowly.",
+          "You are allowed to feel what you feel without judging yourself for it.",
+          "You don't have to pretend everything is fine.",
+          "Sometimes getting through the day is enough.",
+          "You can ask someone you trust to stay with you when things feel heavy.",
+          "There is no shame in needing support.",
+          "You deserve kindness from your self, especially on the days when you're struggling.",
+          "You don't have to hide your sadness to make other people comfortable.",
+          "Some days are harder than others, and that's okay.\nGive yourself time.",
+          "You are allowed to feel sad without blaming yourself for feeling this way.",
+          "Be gentle with yourself today.\nYou are going through something, even if you can't explain it.",
+          "You don't have to find a solution right now. Sometimes you just need a little time and care.",
+          "This feeling may be heavy right now, but you don't have to carry it all by yourself."
+        ]
+      },
+      overwhelmed: {
+        label: 'For Feeling Overwhelmed',
+        title: 'One small step is enough',
+        quotes: [
+          "You don't have to carry everything at once.",
+          "Put the rest aside for a moment and focus on one small thing.",
+          "You are allowed to pause, take some rest.",
+          "One task. One breath. One moment.",
+          "You don't have to finish everything today.",
+          "It's okay to ask for help when things feel too heavy to handle alone.",
+          "Start with what needs your attention right now. Everything else can wait.",
+          "You can make things smaller. You don't have to tackle everything at once.",
+          "Take a breath. Choose one next step.",
+          "You don't need a perfect plan. You just need a starting point.",
+          "You don't have to handle everything at the same time. Give yourself permission to take it one thing at a time.",
+          "When everything feels urgent, pause and choose just one thing to focus on first.",
+          "You are not behind for needing a moment to breathe and reset.",
+          "It's okay to put some things on hold while you take care of yourself.",
+          "You don't need to figure out the entire day. Just decide what your next small step will be.",
+          "Take a pause, breathe, and remember: you can make things manageable by taking them one piece at a time."
+        ]
+      },
+      anger: {
+        label: 'For Anger',
+        title: 'A pause before the next step',
+        quotes: [
+          "You can be angry without having to act on the feeling immediately.",
+          "Pause. Give yourself some space before deciding what to do.",
+          "You don't have to respond while your emotions are at their strongest.",
+          "It's okay to step away and come back when you're ready.",
+          "Your feelings deserve to be understood, but they don't have to make every decision for you.",
+          "Take a moment. Cool down. Then choose your next step.",
+          "You can express what hurt you without hurting yourself or someone else.",
+          "You don't have to solve the situation this minute.",
+          "You don't have to act on an emotion just because you feel it strongly.",
+          "Give yourself a moment of space before deciding what to say or do.",
+          "It's okay to walk away for a little while and return when you're calmer.",
+          "Being angry doesn't make you a bad person. What matters is how you choose to handle it.",
+          "You can acknowledge what hurt you without letting anger decide your next move.",
+          "Take a breath. You can respond when you're ready instead of reacting in the moment. It may hurt u and someone else impacted by your actions.",
+          "Sometimes the strongest response is giving yourself time to cool down.",
+          "Your anger may have something to tell you. Listen to it before you decide what to do with it."
+        ]
+      },
+      'self-compassion': {
+        label: 'Self-Compassion',
+        title: 'A kinder word for yourself',
+        quotes: [
+          "Talk to yourself like someone you care about.",
+          "Making a mistake doesn't make you a failure.",
+          "You are still worthy of kindness on your worst days.",
+          "You don't have to be perfect to be proud of yourself.",
+          "Give yourself permission to learn at your own pace.",
+          "You can forgive yourself for not knowing what you know now.",
+          "You are allowed to be a work in progress.",
+          "Your worth isn't measured by your productivity.",
+          "Needing help doesn't make you weak.",
+          "You deserve the same kindness you give to other people.",
+          "You don't have to be hard on yourself to grow.\nYou can learn through kindness too.",
+          "Give yourself permission to be imperfect. You are still learning and growing.",
+          "You are allowed to have moments when you need extra patience with yourself.",
+          "One mistake doesn't erase all the good things you've done.",
+          "You don't need to compare your journey with anyone else's. Your pace is your own.",
+          "Today, try speaking to yourself with a little more kindness than you did yesterday."
+        ]
+      },
+      'daily-uplift': {
+        label: 'Short Notes for Random Daily Uplift',
+        title: 'A little lift for today',
+        quotes: [
+          "🌱One small step is still a step.",
+          "🌤️You can begin again today.",
+          "💗Be patient with yourself.",
+          "🫶You don't have to do this perfectly.",
+          "🌿Slow down. You're allowed to breathe.",
+          "✨Something difficult doesn't mean everything is hopeless.",
+          "🌷Give yourself a little more kindness today.",
+          "☁️You don't have to carry tomorrow right now.",
+          "🌻You made it through another day.",
+          "💫Progress can be quiet.",
+          "🌱Rest, reset, and try again.",
+          "🕊️You are allowed to take up space and ask for support.",
+          "🌙It's okay to put something down for tonight.",
+          "💗Your feelings are real, but they don't have to control your next step.",
+          "🌿For now, just focus on this moment.",
+          "✨You don't need to know the whole path to take the next step."
+        ]
+      },
+      studying: {
+        label: 'For studying',
+        title: 'Words to focus and begin',
+        quotes: [
+          { text: 'The secret of getting ahead is getting started.', author: 'Mark Twain' },
+          { text: 'It always seems impossible until it’s done.', author: 'Nelson Mandela' },
+          { text: 'The future depends on what you do today.', author: 'Mahatma Gandhi' },
+          { text: 'Success is the sum of small efforts, repeated day in and day out.', author: 'Robert Collier' },
+          { text: 'Learning never exhausts the mind.', author: 'Leonardo da Vinci' },
+          { text: 'Believe you can and you’re halfway there.', author: 'Theodore Roosevelt' },
+          { text: 'An investment in knowledge pays the best interest.', author: 'Benjamin Franklin' },
+          { text: 'Our greatest glory is not in never falling, but in rising every time we fall.', author: 'Confucius' },
+          { text: 'The beautiful thing about learning is that nobody can take it away from you.', author: 'B. B. King' },
+          { text: 'You don’t have to be great to start, but you have to start to be great.', author: 'Zig Ziglar' },
+          { text: 'Hard work beats talent when talent doesn’t work hard.', author: 'Tim Notke' },
+          { text: 'Education is the most powerful weapon which you can use to change the world.', author: 'Nelson Mandela' },
+          { text: 'It does not matter how slowly you go as long as you do not stop.', author: 'Confucius' },
+          { text: 'The only way to do great work is to love what you do.', author: 'Steve Jobs' },
+          { text: 'Success is not final, failure is not fatal: it is the courage to continue that counts.', author: 'Winston Churchill' },
+          { text: 'The expert in anything was once a beginner.', author: 'Helen Hayes' }
+        ]
+      }
+    };
+
+    const collection = quoteCollections[category];
+
+    if (collection) {
+      document.body.classList.add(category + '-support-theme');
+      generalSupport.hidden = false;
+      quoteCategory.textContent = collection.label;
+      quoteTitle.textContent = collection.title;
+
+      const quoteCard = document.getElementById('quote-card');
+      const quoteText = document.getElementById('quote-text');
+      const quoteActions = document.getElementById('quote-actions');
+      const anotherQuote = document.getElementById('another-quote');
+      let currentQuoteIndex = -1;
+
+      function selectQuote() {
+        let nextQuoteIndex;
+        do {
+          nextQuoteIndex = Math.floor(Math.random() * collection.quotes.length);
+        } while (collection.quotes.length > 1 && nextQuoteIndex === currentQuoteIndex);
+        currentQuoteIndex = nextQuoteIndex;
+        const selectedQuote = collection.quotes[currentQuoteIndex];
+        quoteText.textContent = typeof selectedQuote === 'string'
+          ? `“${selectedQuote}”`
+          : `“${selectedQuote.text}”\n— ${selectedQuote.author}`;
+      }
+
+      function revealQuote() {
+        if (!quoteCard.classList.contains('is-revealed')) {
+          selectQuote();
+          quoteCard.classList.add('is-revealed');
+          quoteCard.setAttribute('aria-expanded', 'true');
+          quoteActions.hidden = false;
+        }
+      }
+
+      quoteCard.addEventListener('click', revealQuote);
+      anotherQuote.addEventListener('click', selectQuote);
+    } else {
+      comingSoon.hidden = false;
+    }
+  </script>
+</body>
+</html>
